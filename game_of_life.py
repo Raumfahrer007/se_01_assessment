@@ -35,23 +35,49 @@ def create_heatmap(map):
 
     return heatmap
 
+
+#Exercise 3
+def life_or_death(map):
+    heatmap = create_heatmap(map)
+    new_map = list()
+
+    for y, line in enumerate(heatmap):
+        new_map.append(list())
+        for x, column in enumerate(line):
+            if column == 3:
+                new_map[y].append(1)
+            elif column < 2 or column > 3:
+                new_map[y].append(0)
+            else:
+                new_map[y].append(map[y][x])
+
+    return new_map
+
     
 
 initial_map = [
-    [0,1,0],
-    [0,1,0],
-    [0,1,0]
+    [0,1,0,0],
+    [0,1,0,0],
+    [0,1,0,0],
+    [0,0,0,0]
 ]
 
 test_map = [
-    
+    [0, 0, 0, 1, 0, 1],
+    [0, 1, 0, 0, 0, 1],
+    [0, 0, 1, 1, 1, 0],
+    [1, 1, 1, 0, 0, 0],
+    [1, 0, 0, 1, 1, 0],
+    [0, 1, 0, 1, 1, 0]
 ]
 
 def main():
-    map = create_map(6,6)
-    print_map(map, "Map")
-    heatmap = create_heatmap(map)
+    #map = create_map(6,6)
+    print_map(initial_map, "Map")
+    heatmap = create_heatmap(initial_map)
     print_map(heatmap, "Heatmap")
+    new_map = life_or_death(initial_map)
+    print_map(new_map, "New Map")
 
 
 
