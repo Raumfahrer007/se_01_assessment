@@ -1,9 +1,10 @@
 import random
 
-def print_map(map):
+def print_map(map, name):
+    print(f"{name}---------------")
     for line in map:
         print(line)
-    print("---------------\n")
+    print("\n")
 
 def create_map(x, y):
     map = list()
@@ -43,9 +44,9 @@ def create_heatmap(map):
 
 def main():
     map = create_map(6,6)
-    print_map(map)
+    print_map(map, "Map")
     heatmap = create_heatmap(map)
-    print_map(heatmap)
+    print_map(heatmap, "Heatmap")
 
 
 
