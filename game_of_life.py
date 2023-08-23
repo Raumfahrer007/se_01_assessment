@@ -1,4 +1,6 @@
 import random
+import time
+import os
 
 def print_map(map, name):
     print(f"{name}---------------")
@@ -53,6 +55,34 @@ def life_or_death(map):
 
     return new_map
 
+
+#Exercise 4
+def hash_map(map):
+    string = ""
+    for line in map:
+        for column in line:
+            string += str(column)
+
+    return string
+
+def iterate(map):
+    os.system("cls")
+    previous_iterations = list()
+
+    while True:
+        iteration = hash_map(map)
+        if not iteration in previous_iterations:
+            previous_iterations.append(iteration)
+            print_map(map, f"Iteration {len(previous_iterations) - 1}")
+            map = life_or_death(map)
+
+        else:
+            print(f"Simulation ended after {len(previous_iterations) - 1} iterations")
+            return
+        
+        time.sleep(1)
+
+
     
 
 initial_map = [
@@ -73,11 +103,13 @@ test_map = [
 
 def main():
     #map = create_map(6,6)
-    print_map(initial_map, "Map")
-    heatmap = create_heatmap(initial_map)
-    print_map(heatmap, "Heatmap")
-    new_map = life_or_death(initial_map)
-    print_map(new_map, "New Map")
+    #print_map(initial_map, "Map")
+    #heatmap = create_heatmap(initial_map)
+    #print_map(heatmap, "Heatmap")
+    #new_map = life_or_death(initial_map)
+    #print_map(new_map, "New Map")
+    iterate(test_map)
+
 
 
 
