@@ -86,10 +86,9 @@ def iterate(map):
     
 
 initial_map = [
-    [0,1,0,0],
-    [0,1,0,0],
-    [0,1,0,0],
-    [0,0,0,0]
+    [0,1,0],
+    [0,1,0],
+    [0,1,0],
 ]
 
 test_map = [
@@ -108,7 +107,7 @@ def main():
     #print_map(heatmap, "Heatmap")
     #new_map = life_or_death(initial_map)
     #print_map(new_map, "New Map")
-    iterate(test_map)
+    iterate(initial_map)
 
 
 
