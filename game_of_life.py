@@ -27,20 +27,25 @@ def create_heatmap(map):
         for x, column in enumerate(line):
             neighbors = 0
             for operation in operations:
-                try:
-                    if y+operation[0] < 0 or x+operation[1] < 0:
-                        raise Exception()
-                    
-                    neighbors += map[y+operation[0]][x+operation[1]]
-                except Exception:
-                    pass
+                if y+operation[0] < 0 or x+operation[1] < 0 or y+operation[0] >= len(map) or x+operation[1] >= len(line):
+                    continue
+                
+                neighbors += map[y+operation[0]][x+operation[1]]
             heatmap[y].append(neighbors)
 
     return heatmap
 
     
 
+initial_map = [
+    [0,1,0],
+    [0,1,0],
+    [0,1,0]
+]
 
+test_map = [
+    
+]
 
 def main():
     map = create_map(6,6)
